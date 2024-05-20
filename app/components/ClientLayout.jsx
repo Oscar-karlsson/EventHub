@@ -6,7 +6,7 @@ import Navbar from './navbar';
 import Footer from './footer';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-function Spinner() {
+export function Spinner() {
   return (
     <div className="flex items-center justify-center h-screen">
       <ClipLoader size={50} color={"#3b82f6"} />

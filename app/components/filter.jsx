@@ -3,7 +3,7 @@ import React from 'react';
 import Select from 'react-select';
 import chroma from 'chroma-js';
 
-const FilterComponent = ({ timeOptions, locationOptions, onSort, onLocationFilter }) => {
+const Filter = ({ timeOptions, locationOptions, onSort, onLocationFilter }) => {
 
   const handleSortChange = (selectedOption, { name }) => {
     onSort(selectedOption.value, name);
@@ -63,38 +63,40 @@ const FilterComponent = ({ timeOptions, locationOptions, onSort, onLocationFilte
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 my-4">
-      <div className="bg-white shadow p-4 rounded-lg">
-        <label className="block text-sm font-medium text-gray-900">Sort by Times</label> 
-        <Select 
-          name="time"
-          options={timeOptions}
-          onChange={handleSortChange}
-          styles={customStyles}
-          className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        />
-      </div>
-      <div className="bg-white shadow p-4 rounded-lg">
-        <label className="block text-sm font-medium text-gray-900">Sort by Location</label>
-        <Select
-          name="location"
-          options={locationOptions}
-          onChange={handleSortChange}
-          styles={customStyles}
-          className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        />
-      </div>
-      <div className="bg-white shadow p-4 rounded-lg">
-        <label className="block text-sm font-medium text-gray-900">Filter by Location</label>
-        <Select
-          options={locationOptions}
-          onChange={handleLocationChange}
-          styles={customStyles} 
-          className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-        />
+    <div className="flex justify-center my-4">
+      <div className="flex flex-row space-x-4 bg-white shadow p-4 rounded-lg">
+        <div>
+          <label className="block text-sm font-medium text-gray-900">Sort by Times</label> 
+          <Select 
+            name="time"
+            options={timeOptions}
+            onChange={handleSortChange}
+            styles={customStyles}
+            className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-900">Sort by Location</label>
+          <Select
+            name="location"
+            options={locationOptions}
+            onChange={handleSortChange}
+            styles={customStyles}
+            className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-gray-900">Filter by Location</label>
+          <Select
+            options={locationOptions}
+            onChange={handleLocationChange}
+            styles={customStyles} 
+            className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default FilterComponent;
+export default Filter;

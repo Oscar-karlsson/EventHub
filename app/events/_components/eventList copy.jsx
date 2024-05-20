@@ -1,10 +1,10 @@
 'use client'
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { IoTicketOutline } from 'react-icons/io5';
 
 export const events = [
   {
-    title: 'New Year Celebration',
+    title: 'New Year Celebrations',
     date: '2022-12-31',
     time: '19:00',
     location: 'Central Park, New York',
@@ -24,58 +24,10 @@ export const events = [
   // Add more events as needed
 ];
 
-const sortEvents = (events, criteria) => {
-  let sortedEvents = [...events];
-
-  if (criteria.time) {
-    sortedEvents.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return criteria.time === 'asc' ? dateA - dateB : dateB - dateA;
-    });
-  }
-
-  if (criteria.locationSort) {
-    sortedEvents.sort((a, b) => {
-      if (a.location < b.location) return criteria.locationSort === 'asc' ? -1 : 1;
-      if (a.location > b.location) return criteria.locationSort === 'asc' ? 1 : -1;
-      return 0;
-    });
-  }
-
-  return sortedEvents;
-};
-
-const filterEventsByDate = (events, dateRange) => {
-  if (!dateRange.startDate) return events;
-  return events.filter(event => {
-    const eventDate = new Date(event.date);
-    if (dateRange.endDate) {
-      return eventDate >= dateRange.startDate && eventDate <= dateRange.endDate;
-    } else {
-      return eventDate.toDateString() === dateRange.startDate.toDateString();
-    }
-  });
-};
-
-const filterEventsByLocation = (events, location) => {
-  if (!location) return events;
-  return events.filter(event => event.location === location);
-};
-
-function EventList({ sortCriteria, locationFilter, dateRange }) {
-  const [filteredEvents, setFilteredEvents] = useState(events);
-
-  useEffect(() => {
-    let updatedEvents = sortEvents(events, sortCriteria);
-    updatedEvents = filterEventsByDate(updatedEvents, dateRange);
-    updatedEvents = filterEventsByLocation(updatedEvents, locationFilter);
-    setFilteredEvents(updatedEvents);
-  }, [sortCriteria, locationFilter, dateRange]);
-
+function EventList() {
   return (
     <div>
-      {filteredEvents.map((event, index) => (
+      {events.map((event, index) => (
         <div key={index} className="flex w-full justify-center my-4">
           <img alt="event" src={event.image} className="w-1/6 object-cover rounded-l" />
           <div className="w-1/2 p-4 bg-gray-800 flex justify-between items-center rounded-r">
@@ -98,5 +50,6 @@ function EventList({ sortCriteria, locationFilter, dateRange }) {
     </div>
   );
 }
+
 
 export default EventList;
