@@ -1,6 +1,6 @@
 module.exports = {
     reactStrictMode: true,
     images: {
-        domains: ['cdn.pixabay.com'],
+        domains: ['cdn.pixabay.com', 'firebasestorage.googleapis.com'],
       },
   };
