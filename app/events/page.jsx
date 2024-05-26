@@ -7,16 +7,49 @@ import DatePickerFilter from '../components/datePicker';
 
 function EventPage() {
   const [dates, setDates] = useState([null, null]);
+  const [filter, setFilter] = useState({ time: '', location: '' });
+  const [selectedOption, setSelectedOption] = useState({ time: null, location: null });
+
+  const timeOptions = [
+    { value: 'ascending', label: 'Ascending' },
+    { value: 'descending', label: 'Descending' }
+  ];
+  
+  const locationOptions = [
+    { value: 'alphabetical', label: 'Alphabetical' },
+    { value: 'reverse-alphabetical', label: 'Reverse Alphabetical' }
+  ];
+
+  const handleSort = (value, name) => {
+    setFilter(prevFilter => ({ ...prevFilter, [name]: value }));
+  };
+
+  const handleReset = () => {
+    setDates([null, null]);
+    setFilter({ time: '', location: '' });
+    setSelectedOption({ time: null, location: null });
+  };
 
   return (
     <div className="p-4 bg-bg-color min-h-screen">
       <div className="flex justify-center">
-        <div className="inline-flex justify-center items-center gap-4 bg-white shadow p-4 rounded-lg">
-          <Filter />
-          <DatePickerFilter dates={dates} setDates={setDates} />
+        <div className="inline-flex flex-col justify-center items-center bg-white shadow p-4 rounded-lg">
+          <div className="flex  gap-4">
+            <Filter 
+              timeOptions={timeOptions} 
+              locationOptions={locationOptions} 
+              onSort={handleSort} 
+              selectedOption={selectedOption}
+              setSelectedOption={setSelectedOption}
+            />
+            <DatePickerFilter dates={dates} setDates={setDates} />
+          </div>
+          <button onClick={handleReset} className="bg-primary-button hover:bg-primary-button-hover text-white font-bold py-2 px-4 rounded mt-4">
+            Reset
+          </button>
         </div>
       </div>
-      <EventList dates={dates} />
+      <EventList dates={dates} filter={filter} />
     </div>
   );
 }

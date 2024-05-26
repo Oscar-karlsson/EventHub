@@ -36,6 +36,9 @@ module.exports = {
         'primary-button-hover': 'var(--primary-button-hover-color)',
         'secondary-button': 'var(--secondary-button-color)',
         'secondary-button-hover': 'var(--secondary-button-hover-color)',
+        'card-date': 'var(--card-date-color)', // New color variable for Card Date
+        'card-location': 'var(--card-location-color)', // New color variable for Card Location
+        'card-category': 'var(--card-category-color)', // New color variable for Card Category
       },
     },
   },

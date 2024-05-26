@@ -9,21 +9,29 @@
   /* Background Colors */
   --navbar-bg-color: #F4E1C6; /* Light Sandy Beige for Navbar */
   --footer-bg-color: #F4E1C6; /* Light Sandy Beige for Footer */
-  --page-bg-color: #FFFFF0; /* Ivory White for the whole website */
-  --card-bg-color: #EDC9AF; /* Desert Sand for Event Cards Background */
-  --card-hover-bg-color: #87CEEB; /* Sky Blue for Card Hover Backgrounds */
+  --bg-color: #FDE8D7; /* Papaya Whip for the whole website */
+
   
   /* Text Colors */
   --default-text-color: #2c3e50; /* Dark color for better contrast */
   --button-text-color: #FFFFFF; /* White color for button text */
-  --card-text-color: #6B8E23; /* Muted Olive Green for Card Text */
+
   --subheadline-text-color: #FFDAB9; /* Soft Peach for Subheadline Text */
   --active-link-color: #FFD700; /* Golden Yellow for Active Links */
   --hover-link-color: #40E0D0; /* Vibrant Turquoise for Hover Links */
-  --card-title-color: #FF7F50; /* Warm Sunset Orange for Card Titles */
+
   --logo-text-color: #FF7F50; /* Warm Sunset Orange for Logo Text */
   --nav-links-text-color: #6B8E23; /* Muted Olive Green for Nav Links */
   
+/* Card Colors */
+--card-bg-color: #EDC9AF; /* Desert Sand for Event Cards Background */
+--card-hover-bg-color: #DAB892; /* Slightly darker shade for Card Hover Backgrounds */
+--card-title-color: #FF7F50; /* Warm Sunset Orange for Card Titles */
+--card-text-color: #6B8E23; /* Muted Olive Green for Card Text */
+--card-date-color: #8B4513; /* Saddle Brown for Card Date */
+--card-location-color: #7F9C8D; /* Muted Green for Card Location */
+--card-category-color: #B8860B; /* Dark Goldenrod for Card Category */
+
   /* Button Colors */
   --primary-button-color: #40E0D0; /* Vibrant Turquoise for Primary Buttons */
   --primary-button-hover-color: #2CA9A9; /* Darker Turquoise for Primary Button Hover */

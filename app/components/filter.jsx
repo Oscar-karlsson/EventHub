@@ -3,14 +3,10 @@ import React from 'react';
 import Select from 'react-select';
 import chroma from 'chroma-js';
 
-const Filter = ({ timeOptions, locationOptions, onSort, onLocationFilter }) => {
-
+function Filter({ timeOptions, locationOptions, onSort, selectedOption, setSelectedOption }) {
   const handleSortChange = (selectedOption, { name }) => {
+    setSelectedOption(prevSelectedOption => ({ ...prevSelectedOption, [name]: selectedOption }));
     onSort(selectedOption.value, name);
-  };
-
-  const handleLocationChange = (selectedOption) => {
-    onLocationFilter(selectedOption.value);
   };
 
  // Custom styles for react-select
@@ -66,37 +62,30 @@ const Filter = ({ timeOptions, locationOptions, onSort, onLocationFilter }) => {
     <div className="flex justify-center my-4">
       <div className="flex flex-row space-x-4">
         <div>
-          <label className="block text-sm font-medium text-gray-900">Sort by Times</label> 
+          <label className="block text-sm font-medium text-gray-900">Sort by time</label> 
           <Select 
             name="time"
             options={timeOptions}
             onChange={handleSortChange}
+            value={selectedOption.time}
             styles={customStyles}
-            className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="mt-1 rounded-md shadow-sm w-32 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-900">Sort by Location</label>
+          <label className="block text-sm font-medium text-gray-900">Sort by location</label>
           <Select
             name="location"
             options={locationOptions}
             onChange={handleSortChange}
+            value={selectedOption.location}
             styles={customStyles}
-            className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-900">Filter by Location</label>
-          <Select
-            options={locationOptions}
-            onChange={handleLocationChange}
-            styles={customStyles} 
-            className="mt-1 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="mt-1 rounded-md shadow-sm w-32 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
           />
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Filter;
