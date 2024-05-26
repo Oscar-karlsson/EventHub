@@ -1,11 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /* Background Colors */
+  --navbar-bg-color: #F4E1C6; /* Light Sandy Beige for Navbar */
+  --footer-bg-color: #F4E1C6; /* Light Sandy Beige for Footer */
+  --page-bg-color: #FFFFF0; /* Ivory White for the whole website */
+  --card-bg-color: #EDC9AF; /* Desert Sand for Event Cards Background */
+  --card-hover-bg-color: #87CEEB; /* Sky Blue for Card Hover Backgrounds */
+  
+  /* Text Colors */
+  --default-text-color: #2c3e50; /* Dark color for better contrast */
+  --button-text-color: #FFFFFF; /* White color for button text */
+  --card-text-color: #6B8E23; /* Muted Olive Green for Card Text */
+  --subheadline-text-color: #FFDAB9; /* Soft Peach for Subheadline Text */
+  --active-link-color: #FFD700; /* Golden Yellow for Active Links */
+  --hover-link-color: #40E0D0; /* Vibrant Turquoise for Hover Links */
+  --card-title-color: #FF7F50; /* Warm Sunset Orange for Card Titles */
+  --logo-text-color: #FF7F50; /* Warm Sunset Orange for Logo Text */
+  --nav-links-text-color: #6B8E23; /* Muted Olive Green for Nav Links */
+  
+  /* Button Colors */
+  --primary-button-color: #40E0D0; /* Vibrant Turquoise for Primary Buttons */
+  --primary-button-hover-color: #2CA9A9; /* Darker Turquoise for Primary Button Hover */
+  --secondary-button-color: #FF7F50; /* Warm Sunset Orange for Secondary Buttons */
+  --secondary-button-hover-color: #CC663F; /* Darker Sunset Orange for Secondary Button Hover */
+}
+
+@font-face {
+  font-family: 'ChellaType';
+  src: url('/ChellaType-Regular.ttf') format('truetype');
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,14 +44,28 @@
   }
 }
 
+
+.nav-link {
+  @apply text-nav-links-text;
+}
+
+.nav-link-active {
+  @apply text-active-link;
+}
+
+.description-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'ChellaType', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 @layer utilities {
@@ -33,11 +75,7 @@ body {
 }
 
 
-body {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-}
+
 
 
 .text-shadow {

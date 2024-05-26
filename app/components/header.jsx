@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link';
-import { useAuth, SignInButton } from '@clerk/nextjs';
+import { useAuth, SignUpButton } from '@clerk/nextjs';
 
 const Header = () => {
   const { isSignedIn } = useAuth();
@@ -8,27 +8,28 @@ const Header = () => {
   return (
     <header className="relative bg-blue-600 text-white text-center h-96 flex items-center justify-center">
       <img
-        src="https://themewagon.github.io/Evento/images/demo/bg-slide-01.jpg" // Replace with the path to your background image
+        src="palm-bg.jpg" 
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover opacity-70"
+        className="absolute inset-0 w-full h-full object-cover opacity-100"
       />
       <div className="relative z-10">
-      <h1 className="text-5xl font-bold mb-4 text-white ">Welcome to EventHub!</h1>
-<p className="text-2xl mb-6 text-white ">Discover and book exciting events near you.</p>
+      <h1 className="text-7xl font-bold mb-4 text-white font-chella">Welcome to EventHub!</h1>
+      <p className="text-3xl mb-6 text-white font-open-sans">Discover and book exciting events near you.</p>
         
-{isSignedIn ? (
-  <Link 
-    href="/events"
-    className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-  >
-    Go to Events
-  </Link>
-) : (
-  <SignInButton 
-    mode='modal' 
-    className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" 
-  />
-)}
+      {isSignedIn ? (
+          <Link href="/events" passHref>
+            <div className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-primary-button hover:bg-primary-button-hover transition duration-200 ease-in-out">
+              Go to Events
+            </div>
+          </Link>
+        ) : (
+          <SignUpButton 
+            mode='modal' 
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-primary-button hover:bg-primary-button-hover transition duration-200 ease-in-out" 
+          >
+            Register
+          </SignUpButton>
+        )}
       </div>
 </header>
   );

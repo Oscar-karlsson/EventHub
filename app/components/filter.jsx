@@ -64,7 +64,7 @@ const Filter = ({ timeOptions, locationOptions, onSort, onLocationFilter }) => {
 
   return (
     <div className="flex justify-center my-4">
-      <div className="flex flex-row space-x-4 bg-white shadow p-4 rounded-lg">
+      <div className="flex flex-row space-x-4">
         <div>
           <label className="block text-sm font-medium text-gray-900">Sort by Times</label> 
           <Select 

@@ -25,7 +25,7 @@ export default function ClientLayout({ children }) {
   }, [isLoaded]);
 
   return loading ? <Spinner /> : (
-<div className="flex flex-col min-h-screen justify-between">
+<div className="flex flex-col min-h-screen justify-between bg-bg-color">
       <header>
         <Navbar />
       </header>
