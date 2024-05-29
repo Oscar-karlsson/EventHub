@@ -21,6 +21,7 @@ function EventPage() {
   ];
 
   const handleSort = (value, name) => {
+    setSelectedOption(prevSelectedOption => ({ ...prevSelectedOption, [name]: { value: value, label: value } }));
     setFilter(prevFilter => ({ ...prevFilter, [name]: value }));
   };
 
@@ -33,7 +34,7 @@ function EventPage() {
   return (
     <div className="p-4 bg-bg-color min-h-screen">
       <div className="flex justify-center">
-        <div className="inline-flex flex-col justify-center items-center bg-white shadow p-4 rounded-lg">
+        <div className="inline-flex flex-col justify-center items-center bg-card-bg shadow p-4 rounded-lg">
           <div className="flex  gap-4">
             <Filter 
               timeOptions={timeOptions} 
@@ -44,7 +45,7 @@ function EventPage() {
             />
             <DatePickerFilter dates={dates} setDates={setDates} />
           </div>
-          <button onClick={handleReset} className="bg-primary-button hover:bg-primary-button-hover text-white font-bold py-2 px-4 rounded mt-4">
+          <button onClick={handleReset} className="bg-primary-button hover:bg-primary-button-hover text-default-text font-poppins py-2 px-4 rounded mt-4">
             Reset
           </button>
         </div>

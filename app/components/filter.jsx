@@ -10,59 +10,59 @@ function Filter({ timeOptions, locationOptions, onSort, selectedOption, setSelec
   };
 
  // Custom styles for react-select
-  const customStyles = {
-    control: (provided) => ({
-      ...provided,
-      backgroundColor: '#1f2937', // Tailwind bg-gray-800
-      borderColor: '#4b5563', // Tailwind border-gray-600
-    }),
-    menu: (provided) => ({
-      ...provided,
-      backgroundColor: '#1f2937', // Tailwind bg-gray-800
-    }),
-    singleValue: (provided) => ({
-      ...provided,
-      color: '#f9fafb', // Tailwind text-gray-50
-    }),
-    option: (provided, state) => {
-      const color = state.isDisabled
-        ? '#ccc'
-        : state.isSelected
-        ? '#f9fafb'
-        : state.isFocused
-        ? '#d1d5db'
-        : '#f9fafb'; // Tailwind text colors
+ const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    backgroundColor: 'var(--select-control-bg)',
+    borderColor: 'var(--select-control-border)',
+  }),
+  menu: (provided) => ({
+    ...provided,
+    backgroundColor: 'var(--select-menu-bg)',
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: 'var(--select-single-value)',
+  }),
+  option: (provided, state) => {
+    const color = state.isDisabled
+      ? 'var(--select-disabled-option)'
+      : state.isSelected
+      ? 'var(--select-selected-option)'
+      : state.isFocused
+      ? 'var(--select-focused-option)'
+      : 'var(--select-option)';
 
-      return {
-        ...provided,
-        backgroundColor: state.isSelected
-          ? '#4b5563' // Tailwind bg-gray-700
-          : state.isFocused
-          ? '#374151' // Tailwind bg-gray-600
-          : '#1f2937', // Tailwind bg-gray-800
-        color,
-        cursor: state.isDisabled ? 'not-allowed' : 'default',
-        ':active': {
-          ...provided[':active'],
-          backgroundColor: !state.isDisabled && (state.isSelected ? '#4b5563' : chroma('#1f2937').alpha(0.3).css()),
-        },
-      };
-    },
-    input: (provided) => ({
+    return {
       ...provided,
-      color: '#f9fafb', // Tailwind text-gray-50
-    }),
-    placeholder: (provided) => ({
-      ...provided,
-      color: '#9ca3af', // Tailwind text-gray-400
-    }),
-  };
+      backgroundColor: state.isSelected
+        ? 'var(--select-selected-option-bg)'
+        : state.isFocused
+        ? 'var(--select-focused-option-bg)'
+        : 'var(--select-option-bg)',
+      color,
+      cursor: state.isDisabled ? 'not-allowed' : 'default',
+      ':active': {
+        ...provided[':active'],
+        backgroundColor: !state.isDisabled && (state.isSelected ? 'var(--select-selected-option-bg)' : 'var(--select-option-bg-light)'),
+      },
+    };
+  },
+  input: (provided) => ({
+    ...provided,
+    color: 'var(--select-input)',
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: 'var(--select-placeholder)',
+  }),
+};
 
   return (
     <div className="flex justify-center my-4">
       <div className="flex flex-row space-x-4">
         <div>
-          <label className="block text-sm font-medium text-gray-900">Sort by time</label> 
+          <label className="block text-sm font-medium text-default-text">Sort by time</label> 
           <Select 
             name="time"
             options={timeOptions}
@@ -73,7 +73,7 @@ function Filter({ timeOptions, locationOptions, onSort, selectedOption, setSelec
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-900">Sort by location</label>
+          <label className="block text-sm font-medium text-default-text">Sort by location</label>
           <Select
             name="location"
             options={locationOptions}

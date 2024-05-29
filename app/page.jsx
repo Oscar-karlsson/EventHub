@@ -30,6 +30,7 @@ export default function Home() {
       <li>
         <strong className="text-green-600">Wide Variety:</strong> Find events that match your interests.
       </li>
+  
       <li>
         <strong className="text-green-600">Secure Payments:</strong> Enjoy secure and reliable payment options.
       </li>

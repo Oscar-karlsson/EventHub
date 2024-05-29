@@ -22,13 +22,18 @@ const Navbar = () => {
 
   return (
     
-    <nav className="flex items-center justify-between p-6 bg-navbar-bg text-white shadow-lg">
+    <nav className="flex items-center justify-between p-6 bg-navbar-bg text-white ">
       <Link href="/" passHref>
   <div className="text-3xl text-logo-text font-bold font-chella cursor-pointer">
     Event Hub
   </div>
 </Link>
 <div className="flex items-center gap-4">
+<Link href="/" passHref>
+          <div onClick={handleEventsClick} className={`text-xl font-bold font-poppins cursor-pointer nav-link hover:text-hover-link ${isActive('/') ? 'nav-link-active' : ''}`}>
+            Home
+          </div>
+        </Link>
         <Link href="/events" passHref>
           <div onClick={handleEventsClick} className={`text-xl font-bold font-poppins cursor-pointer nav-link hover:text-hover-link ${isActive('/events') ? 'nav-link-active' : ''}`}>
             Events

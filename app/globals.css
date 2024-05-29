@@ -17,7 +17,7 @@
   --button-text-color: #FFFFFF; /* White color for button text */
 
   --subheadline-text-color: #FFDAB9; /* Soft Peach for Subheadline Text */
-  --active-link-color: #FFD700; /* Golden Yellow for Active Links */
+  --active-link-color: #FFA500; /* Bright Orange for Active Links */
   --hover-link-color: #40E0D0; /* Vibrant Turquoise for Hover Links */
 
   --logo-text-color: #FF7F50; /* Warm Sunset Orange for Logo Text */
@@ -37,6 +37,23 @@
   --primary-button-hover-color: #2CA9A9; /* Darker Turquoise for Primary Button Hover */
   --secondary-button-color: #FF7F50; /* Warm Sunset Orange for Secondary Buttons */
   --secondary-button-hover-color: #CC663F; /* Darker Sunset Orange for Secondary Button Hover */
+
+  /* Filter component variables */
+  --select-control-bg: var(--card-bg-color); /* Background color for the select control */
+  --select-control-border: var(--card-text-color); /* Border color for the select control */
+  --select-menu-bg: var(--card-bg-color); /* Background color for the select menu */
+  --select-single-value: var(--default-text-color); /* Color for the single value in select */
+  --select-disabled-option: var(--card-text-color); /* Color for the disabled option in select */
+  --select-selected-option: var(--default-text-color); /* Color for the selected option in select */
+  --select-focused-option: var(--primary-button-color); /* Color for the focused option in select */
+  --select-option: var(--default-text-color); /* Color for the option in select */
+  --select-selected-option-bg: var(--card-hover-bg-color); /* Background color for the selected option in select */
+  --select-option-bg-light: #F5D0B1; /* Lighter shade of card-bg-color for the option in select */
+  --select-focused-option-bg: var(--card-bg-color); /* Background color for the focused option in select */
+  --select-option-bg: var(--card-bg-color); /* Background color for the option in select */
+  --select-input: var(--default-text-color); /* Color for the input in select */
+  --select-placeholder: var(--card-date-color); /* Color for the placeholder in select */
+  
 }
 
 @font-face {
@@ -61,6 +78,7 @@
   @apply text-active-link;
 }
 
+
 .description-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 2; /* Number of lines to show */
@@ -83,7 +101,30 @@ body {
 }
 
 
+.blue-100-fill {
+  @apply text-blue-100;
+}
 
+.custom-date-picker {
+  @apply mt-1 rounded-md shadow-sm p-2;
+  @apply focus:border-select-focused-option focus:ring focus:ring-select-focused-option-bg focus:ring-opacity-50;
+  @apply border text-select-single-value;
+}
+
+.custom-date-picker {
+  border: 1px solid var(--select-control-border);
+  background-color: var(--select-control-bg);
+  color: var(--select-single-value);
+}
+
+.custom-date-picker:focus {
+  border-color: var(--select-focused-option);
+  box-shadow: 0 0 0 3px var(--select-focused-option-bg);
+}
+
+.custom-date-picker::placeholder {
+  color: var(--select-placeholder);
+}
 
 
 .text-shadow {
