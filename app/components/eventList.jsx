@@ -2,12 +2,19 @@
 import React, { useState, useEffect } from 'react';
 import { IoTicketOutline } from 'react-icons/io5';
 import Link from 'next/link'; 
+import { PiMapPinLight } from "react-icons/pi";
 
 function EventList({ dates, filter }) {
   const [events, setEvents] = useState([]);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   const port = process.env.NEXT_PUBLIC_PORT;
+
+
+  const formatDate = (dateString) => {
+    const options = { weekday: 'short', day: '2-digit', month: 'short' };
+    return new Date(dateString).toLocaleDateString('en-GB', options).replace(/,/g, '');
+  };
 
   useEffect(() => {
     fetch(`${apiUrl}:${port}/api/event`)
@@ -83,6 +90,8 @@ function EventList({ dates, filter }) {
       });
   }, [dates, filter]);
 
+
+
   return (
     <div className="flex flex-col items-center w-full">
       {events.map((event) => (
@@ -94,11 +103,15 @@ function EventList({ dates, filter }) {
             </div>
             <div className="w-3/4 p-4 flex justify-between items-center rounded-r">
               <div className="flex-grow">
-                <p className="text-card-title text-md font-medium h-8 overflow-hidden">{event.title}</p>
-                <p className="text-card-date text-xl font-medium mb-2 h-6 overflow-hidden">{event.date}</p>
-                <p className="text-card-location font-light h-6 overflow-hidden">{event.location}</p>
-                <p className="text-sm text-card-text description-clamp">{event.description}</p>
-                <p className="text-sm text-card-category h-6 overflow-hidden">Category: {event.category}</p>
+              <div className="flex items-center -mt-6">
+                <p className="text-card-date font-bold font-open-sans h-6 overflow-hidden">{formatDate(event.date)}</p>
+                <PiMapPinLight  size={20} className="mx-1 text-red-600" />
+                <p className="text-card-date font-bold font-open-sans h-6 overflow-hidden">{event.location}</p>
+              </div>
+                <p className="text-card-title text-2xl font-bold font-open-sans mb-2 h-8 overflow-hidden">{event.title}</p>
+                {/* <p className="text-card-location font-light h-6 overflow-hidden">{event.location}</p> */}
+                <p className="text-sm text-card-text font-open-sans description-clamp mb-2">{event.description}</p>
+                <p className="text-sm text-card-category font-open-sans h-6 overflow-hidden">Category: {event.category}</p>
               </div>
               <div className={`${event.bookedUsers?.length < event.numberOfSeats ? 'hover:bg-slate-100/5 p-2 rounded-full' : ''}`}>
                 {event.bookedUsers?.length < event.numberOfSeats ? (

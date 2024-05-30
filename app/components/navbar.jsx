@@ -39,7 +39,7 @@ const Navbar = () => {
             Events
           </div>
         </Link>
-        <Link href="/about" passHref>
+        <Link href="#" passHref>
         <div className={`text-xl font-bold font-poppins cursor-pointer nav-link hover:text-hover-link ${isActive('/about') ? 'nav-link-active' : ''}`}>
             About
           </div>

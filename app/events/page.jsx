@@ -45,7 +45,7 @@ function EventPage() {
             />
             <DatePickerFilter dates={dates} setDates={setDates} />
           </div>
-          <button onClick={handleReset} className="bg-primary-button hover:bg-primary-button-hover text-default-text font-poppins py-2 px-4 rounded mt-4">
+          <button onClick={handleReset} className="bg-primary-button hover:bg-primary-button-hover text-default-text font-poppins py-2 px-4 rounded mt-0">
             Reset
           </button>
         </div>

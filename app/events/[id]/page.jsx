@@ -167,7 +167,7 @@ return (
           </div>
         </div>
     </div>
-    <hr className="border-t-2 border-slate-400/10 mt-32 mb-40" />
+    <hr className="border-t-2 border-slate-400/10 mt-32 mb-4" />
     <div className="p-2">
   <EventList filter={filter} />
 </div>
