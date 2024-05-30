@@ -6,7 +6,7 @@ const Header = () => {
   const { isSignedIn } = useAuth();
 
   return (
-    <header className="relative bg-blue-600 text-white text-center h-96 flex items-center justify-center">
+    <header className="relative  text-white text-center h-96 flex items-center justify-center">
       <img
         src="palm-bg.jpg" 
         alt="Background"
