@@ -4,7 +4,6 @@ import Header from "./components/header";
 const testimonials = [
   { text: "EventHub made it so easy to find and book events. Highly recommended!", author: "Jessica Thompson" },
   { text: "A fantastic platform with a great selection of events.", author: "Michael Johnson" },
-  // Add more testimonials as needed
 ];
 
 export default function Home() {
