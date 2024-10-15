@@ -1,4 +1,4 @@
-EventHub - Frontend
+EventHub 
 
 EventHub is a web application built using Next.js that allows users to browse and manage events. This frontend connects to a separate backend for event data and user interactions.
 Features
